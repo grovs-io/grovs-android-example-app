@@ -1,1 +1,1 @@
-This is a demo app for the grovs Android SDK.
+This is a demo app for the Grovs Android SDK.
