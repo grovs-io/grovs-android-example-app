@@ -25,6 +25,7 @@ import androidx.lifecycle.lifecycleScope
 import io.grovs.Grovs
 import io.grovs.utils.flow
 import io.grovs.example.ui.theme.GrovsExampleAppTheme
+import io.grovs.model.exceptions.GrovsException
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -93,12 +94,18 @@ fun CenteredTextViewAndButton(viewModel: MainViewModel) {
 //                    })
 
                 coroutineScope.launch {
-                    val link = Grovs.generateLink(title = "Test title",
-                        subtitle = "Test subtitle",
-                        imageURL = null,
-                        data = mapOf("param1" to "Test value"),
-                        tags = null)
-                    generatedLinkState.value = link
+                    try {
+                        val link = Grovs.generateLink(
+                            title = "Test title",
+                            subtitle = "Test subtitle",
+                            imageURL = null,
+                            data = mapOf("param1" to "Test value"),
+                            tags = null
+                        )
+                        generatedLinkState.value = link
+                    } catch (e: GrovsException) {
+                        generatedLinkState.value = e.toString()
+                    }
                 }
             }) {
                 Text(text = "Generate link")
