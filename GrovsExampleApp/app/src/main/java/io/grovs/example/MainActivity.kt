@@ -83,6 +83,13 @@ fun CenteredTextViewAndButton(viewModel: MainViewModel) {
 //                    imageURL = null,
 //                    data = mapOf("param1" to "Test value"),
 //                    tags = null,
+//                    customRedirects = CustomRedirects(
+//                        ios = CustomLinkRedirect(link = "https://grovs.io/ios", openAppIfInstalled = true),
+//                        android = CustomLinkRedirect(link = "https://grovs.io/android", openAppIfInstalled = true),
+//                        desktop = CustomLinkRedirect(link = "https://grovs.io/desktop", openAppIfInstalled = true)
+//                    ),
+//                    showPreviewIos = true,
+//                    showPreviewAndroid = false,
 //                    lifecycleOwner = activity,
 //                    listener = { link, error ->
 //                        link?.let { link ->
@@ -100,7 +107,14 @@ fun CenteredTextViewAndButton(viewModel: MainViewModel) {
                             subtitle = "Test subtitle",
                             imageURL = null,
                             data = mapOf("param1" to "Test value"),
-                            tags = null
+                            tags = null,
+                            customRedirects = CustomRedirects(
+                                ios = CustomLinkRedirect(link = "https://grovs.io/ios", openAppIfInstalled = true),
+                                android = CustomLinkRedirect(link = "https://grovs.io/android", openAppIfInstalled = true),
+                                desktop = CustomLinkRedirect(link = "https://grovs.io/desktop", openAppIfInstalled = true)
+                            ),
+                            showPreviewIos = true,
+                            showPreviewAndroid = false
                         )
                         generatedLinkState.value = link
                     } catch (e: GrovsException) {
